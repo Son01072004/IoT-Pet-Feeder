@@ -29,24 +29,6 @@ BLYNK_WRITE(V1) {
     trapDoorState = 0;
   }
 }
-BLYNK_WRITE(V2) {
-  if (param.asInt() == 1 && trapDoorState == 0) {
-    servo.write(angleOpen);
-    trapDoorState = 1;
-    delay(2000);  // Delay for 2 seconds
-    servo.write(angleClosed);
-    trapDoorState = 0;
-  }
-}
-BLYNK_WRITE(V4) {
-  if (param.asInt() == 1 && trapDoorState == 0) {
-    servo.write(angleOpen);
-    trapDoorState = 1;
-    delay(3000);  // Delay for 3 seconds
-    servo.write(angleClosed);
-    trapDoorState = 0;
-  }
-}
 void setup() {
   Serial.begin(115200);
   servo.attach(D3);
